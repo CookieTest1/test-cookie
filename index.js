@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
-const token = require("./token.json");
 const fs = require("fs");
 const botconfig = require("./botconfig.json");
 const ms = require("ms");
 const mysql = require("mysql");
+const token = process.env.token;
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
@@ -69,4 +69,4 @@ bot.on("guildCreate", async guild => {
   console.log(`Joined a new guild named: ${guild.name} with invite: https://discord.gg/${invite.code}`)
 });
 
-bot.login(token.token);
+bot.login(token);
